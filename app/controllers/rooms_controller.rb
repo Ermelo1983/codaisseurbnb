@@ -55,8 +55,7 @@ class RoomsController < ApplicationController
   end
 
   def image_params
-    images = params.require(:images)
-    images && images.any? ? images : []
+    params[:images].present? ? params.require(:images) : []
   end
 
   def room_params
